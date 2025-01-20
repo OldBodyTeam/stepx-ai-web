@@ -1,0 +1,26 @@
+import { FC, PropsWithChildren } from "react";
+import Image from "next/image";
+import Link from "next/link";
+const HomeLayout: FC<PropsWithChildren<any>> = ({ children }) => {
+  return (
+    <div className="w-full h-full flex flex-col">
+      <div className="w-full flex items-center justify-between px-24 py-16 shadow">
+        <Image src={"/web/logo.png"} width={100} height={24} alt="logo" />
+        <div className="space-x-8 flex items-center">
+          <Link href={"/register"}>
+            <div className="px-16 py-8 border-1 border-solid border-222222 text-xs14 font-medium text-222222 rounded-16 cursor-pointer">
+              Log Up
+            </div>
+          </Link>
+          <Link href={"/login"}>
+            <div className="px-16 py-9 text-xs14 font-medium text-222222 rounded-16 bg-D0FF71 cursor-pointer">
+              Log In
+            </div>
+          </Link>
+        </div>
+      </div>
+      {children}
+    </div>
+  );
+};
+export default HomeLayout;
