@@ -5,7 +5,7 @@ import { Divider } from "antd";
 import Link from "next/link";
 const ProductionTitle = () => {
   return (
-    <div className="flex items-center">
+    <div className="flex space-x-32">
       <ImageList />
       <div>
         <div className="text-xs12 text-222222 mb-2">OpenAI</div>
@@ -22,7 +22,7 @@ const ProductionTitle = () => {
             );
           })}
         </div>
-        <div className="flex items-center space-x-8">
+        <div className="flex items-center space-x-8 mt-12">
           <div className="flex items-center space-x-1">
             <Image
               src={"/production/date.png"}
@@ -45,12 +45,12 @@ const ProductionTitle = () => {
           </div>
         </div>
         <Divider />
-        <Link href={""}>
-          <div className="px-195 py-10 bg-D0FF71 rounded-20 flex items-center justify-center font-medium text-xs14 text-222222">
+        <Link href={"/production/love.png"} className="block">
+          <div className="py-10 bg-D0FF71 rounded-20 flex items-center justify-center font-medium text-xs14 text-222222">
             Visit Site
           </div>
         </Link>
-        <div className="line-clamp-3 text-xs12 text-4F5357">
+        <div className="line-clamp-3 text-xs12 text-4F5357 mt-12">
           Unleash the potential of AI with Soulkyn - your customizable,
           intelligent companion. With realistic memory and unique personalities,
           Soulkyn is your perfect digital companion. Discover the future of AI

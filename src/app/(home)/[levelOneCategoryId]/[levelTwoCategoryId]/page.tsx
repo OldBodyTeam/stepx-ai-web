@@ -1,3 +1,5 @@
+import ProductionList from "@/components/production-list/production-list";
+
 const categoryListEntry = async ({
   params,
 }: {
@@ -9,6 +11,7 @@ const categoryListEntry = async ({
     <div>
       {decodeURIComponent(levelOneCategoryId)}
       {decodeURIComponent(levelTwoCategoryId)}
+      <ProductionList />
     </div>
   );
 };

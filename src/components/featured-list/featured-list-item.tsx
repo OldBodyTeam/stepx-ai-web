@@ -3,10 +3,15 @@ import Image from "next/image";
 
 const FeaturedListItem = () => {
   return (
-    <div className="rounded-16 overflow-hidden">
-      <div className="p-16 flex items-center justify-between">
-        <div className="w-46 h-46 rounded-16 overflow-hidden">
-          <Image src={""} alt="logo" width={46} height={46} />
+    <div className="rounded-16 overflow-hidden border-1 border-solid border-E8E8E9">
+      <div className="p-16 flex items-center justify-between space-x-16">
+        <div className="w-46 h-46 rounded-8 overflow-hidden bg-D0FF71">
+          <Image
+            src={"/production/love.png"}
+            alt="logo"
+            width={46}
+            height={46}
+          />
         </div>
         <div>
           <div className="flex items-center mb-6">
