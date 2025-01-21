@@ -54,6 +54,9 @@ export default function RootLayout({
                 Modal: {
                   borderRadiusLG: 16,
                 },
+                Menu: {
+                  lineWidth: 0,
+                },
               },
             }}
           >

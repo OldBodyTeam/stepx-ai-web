@@ -1,80 +1,36 @@
 "use client";
-import React from "react";
-import {
-  AppstoreOutlined,
-  MailOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
+import React, { useEffect, useMemo, useState } from "react";
+import { HomeOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import { Menu } from "antd";
+import { Button, Divider, Menu, Spin } from "antd";
+import { useMount, useRequest } from "ahooks";
+import api from "@/utils/service";
+import {
+  FrontCategoryListCreate200ResponseDataItemsInner,
+  FrontCategoryListCreateRequest,
+} from "@/services";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
-const items: MenuItem[] = [
+export interface CategoryListType {
+  label?: React.ReactNode;
+  value?: number;
+  key?: number;
+  children?: CategoryListType[];
+  icon?: React.ReactNode;
+}
+const homeItems: MenuItem[] = [
   {
-    key: "sub1",
-    label: "Navigation One",
-    icon: <MailOutlined />,
-    children: [
-      {
-        key: "g1",
-        label: "Item 1",
-        type: "group",
-        children: [
-          { key: "1", label: "Option 1" },
-          { key: "2", label: "Option 2" },
-        ],
-      },
-      {
-        key: "g2",
-        label: "Item 2",
-        type: "group",
-        children: [
-          { key: "3", label: "Option 3" },
-          { key: "4", label: "Option 4" },
-        ],
-      },
-    ],
+    key: "home",
+    label: "Home",
+    icon: <HomeOutlined />,
   },
+];
+const otherItems: MenuItem[] = [
   {
-    key: "sub2",
-    label: "Navigation Two",
-    icon: <AppstoreOutlined />,
-    children: [
-      { key: "5", label: "Option 5" },
-      { key: "6", label: "Option 6" },
-      {
-        key: "sub3",
-        label: "Submenu",
-        children: [
-          { key: "7", label: "Option 7" },
-          { key: "8", label: "Option 8" },
-        ],
-      },
-    ],
-  },
-  {
-    type: "divider",
-  },
-  {
-    key: "sub4",
-    label: "Navigation Three",
-    icon: <SettingOutlined />,
-    children: [
-      { key: "9", label: "Option 9" },
-      { key: "10", label: "Option 10" },
-      { key: "11", label: "Option 11" },
-      { key: "12", label: "Option 12" },
-    ],
-  },
-  {
-    key: "grp",
-    label: "Group",
-    type: "group",
-    children: [
-      { key: "13", label: "Option 13" },
-      { key: "14", label: "Option 14" },
-    ],
+    key: "home",
+    label: "Home",
+    icon: <HomeOutlined />,
   },
 ];
 
@@ -83,15 +39,73 @@ const Home: React.FC = () => {
     console.log("click ", e);
   };
 
+  const {
+    run,
+    loading,
+    data: categoryList,
+  } = useRequest(
+    async (params: FrontCategoryListCreateRequest) => {
+      const data = await api.frontCategoryListCreate(params);
+      return data.data.data?.items;
+    },
+    {
+      manual: true,
+    }
+  );
+
+  useMount(() => {
+    run({});
+  });
+  const list = useMemo(() => {
+    const transformData = (
+      items?: FrontCategoryListCreate200ResponseDataItemsInner[]
+    ): CategoryListType[] => {
+      if (!items) return [];
+      return items.map((item) => ({
+        label: item.name,
+        value: item.id,
+        key: item.id,
+        children: item.children ? transformData(item.children) : undefined,
+      }));
+    };
+
+    return transformData(Array.isArray(categoryList) ? categoryList : []);
+  }, [categoryList]);
+
+  const [menuList, setMenuList] = useState<MenuItem[]>([]);
+
+  useEffect(() => {
+    setMenuList(list.slice(0, 6) as MenuItem[]);
+  }, [list]);
+
+  console.log("data", menuList);
+
   return (
-    <Menu
-      onClick={onClick}
-      style={{ width: 256 }}
-      defaultSelectedKeys={["1"]}
-      defaultOpenKeys={["sub1"]}
-      mode="inline"
-      items={items}
-    />
+    <Spin className="flex" spinning={loading}>
+      <div className="w-216 py-12 px-8 h-screen border-r-1 border-solid border-F5F5F5">
+        <Menu
+          onClick={onClick}
+          defaultSelectedKeys={["1"]}
+          defaultOpenKeys={["sub1"]}
+          mode="inline"
+          items={homeItems}
+        />
+        <Divider />
+        <div>
+          <Menu onClick={onClick} mode="inline" items={menuList} />
+          <Button>加载更多</Button>
+        </div>
+
+        <Divider />
+        <Menu
+          onClick={onClick}
+          defaultSelectedKeys={["1"]}
+          defaultOpenKeys={["sub1"]}
+          mode="inline"
+          items={otherItems}
+        />
+      </div>
+    </Spin>
   );
 };
 

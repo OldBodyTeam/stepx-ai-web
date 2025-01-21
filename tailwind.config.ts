@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { Config } from "tailwindcss";
 import scrollbar from "tailwind-scrollbar";
 export default {
@@ -46,9 +47,10 @@ export default {
       "8A8C90": "#8A8C90",
       FA3100: "#FA3100",
       FAFAFB: "#FAFAFB",
-      "6F6F6F": "#6F6F6F ",
-      "161B22": "#161B22 ",
-      "4F5357": "#4F5357 ",
+      "6F6F6F": "#6F6F6F",
+      "161B22": "#161B22",
+      "4F5357": "#4F5357",
+      F5F5F5: "#F5F5F5",
       o232: "rgba(232,232,233,0.2)",
       o16: "rgba(16,16,16,0.65)",
       o34: "rgba(34,34,34,0.65)",

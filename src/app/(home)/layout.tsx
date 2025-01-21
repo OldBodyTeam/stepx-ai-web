@@ -4,7 +4,7 @@ import Link from "next/link";
 const HomeLayout: FC<PropsWithChildren<any>> = ({ children }) => {
   return (
     <div className="w-full h-full flex flex-col">
-      <div className="w-full flex items-center justify-between px-24 py-16 shadow">
+      <div className="w-full flex items-center justify-between px-24 py-16 border-1 border-solid border-F5F5F5">
         <Image src={"/web/logo.png"} width={100} height={24} alt="logo" />
         <div className="space-x-8 flex items-center">
           <Link href={"/register"}>
