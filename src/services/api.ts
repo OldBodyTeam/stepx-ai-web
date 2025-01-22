@@ -2654,17 +2654,11 @@ export interface FrontProductListCreateRequest {
      */
     'product_name'?: string;
     /**
-     * 年份
+     * 时间值，1-12表示月份，其他数字表示年份
      * @type {number}
      * @memberof FrontProductListCreateRequest
      */
-    'year'?: number;
-    /**
-     * 月份
-     * @type {number}
-     * @memberof FrontProductListCreateRequest
-     */
-    'month'?: number;
+    'time_value'?: number;
     /**
      * 创建时间排序方向 asc:升序 desc:降序
      * @type {string}
@@ -2960,6 +2954,63 @@ export interface FrontStatisticsCreate200ResponseDataAdvertisement {
 /**
  * 
  * @export
+ * @interface FrontYearMonthListCreate200Response
+ */
+export interface FrontYearMonthListCreate200Response {
+    /**
+     * 状态码
+     * @type {number}
+     * @memberof FrontYearMonthListCreate200Response
+     */
+    'code'?: number;
+    /**
+     * 提示信息
+     * @type {string}
+     * @memberof FrontYearMonthListCreate200Response
+     */
+    'msg'?: string;
+    /**
+     * 
+     * @type {FrontYearMonthListCreate200ResponseData}
+     * @memberof FrontYearMonthListCreate200Response
+     */
+    'data'?: FrontYearMonthListCreate200ResponseData;
+}
+/**
+ * 
+ * @export
+ * @interface FrontYearMonthListCreate200ResponseData
+ */
+export interface FrontYearMonthListCreate200ResponseData {
+    /**
+     * 年月列表
+     * @type {Array<FrontYearMonthListCreate200ResponseDataItemsInner>}
+     * @memberof FrontYearMonthListCreate200ResponseData
+     */
+    'items'?: Array<FrontYearMonthListCreate200ResponseDataItemsInner>;
+}
+/**
+ * 年月列表
+ * @export
+ * @interface FrontYearMonthListCreate200ResponseDataItemsInner
+ */
+export interface FrontYearMonthListCreate200ResponseDataItemsInner {
+    /**
+     * 值
+     * @type {number}
+     * @memberof FrontYearMonthListCreate200ResponseDataItemsInner
+     */
+    'value'?: number;
+    /**
+     * 显示文本，年份为数字，月份为简称
+     * @type {string}
+     * @memberof FrontYearMonthListCreate200ResponseDataItemsInner
+     */
+    'label'?: string;
+}
+/**
+ * 
+ * @export
  * @interface MenuCreateCreateRequest
  */
 export interface MenuCreateCreateRequest {
@@ -3133,6 +3184,259 @@ export interface MenuListCreateRequest {
 /**
  * 
  * @export
+ * @interface MonthDictCreateCreateRequest
+ */
+export interface MonthDictCreateCreateRequest {
+    /**
+     * 月份数字(1-12)
+     * @type {number}
+     * @memberof MonthDictCreateCreateRequest
+     */
+    'month_number': number;
+    /**
+     * 月份名称(例如：January)
+     * @type {string}
+     * @memberof MonthDictCreateCreateRequest
+     */
+    'month_name': string;
+    /**
+     * 月份简称(例如：Jan)
+     * @type {string}
+     * @memberof MonthDictCreateCreateRequest
+     */
+    'month_name_short': string;
+    /**
+     * 中文月份名(例如：一月)
+     * @type {string}
+     * @memberof MonthDictCreateCreateRequest
+     */
+    'month_name_cn': string;
+    /**
+     * 排序
+     * @type {number}
+     * @memberof MonthDictCreateCreateRequest
+     */
+    'sort'?: number;
+    /**
+     * 状态 1:正常,0:禁用
+     * @type {number}
+     * @memberof MonthDictCreateCreateRequest
+     */
+    'status'?: number;
+}
+/**
+ * 
+ * @export
+ * @interface MonthDictDeleteCreateRequest
+ */
+export interface MonthDictDeleteCreateRequest {
+    /**
+     * ID
+     * @type {number}
+     * @memberof MonthDictDeleteCreateRequest
+     */
+    'id': number;
+}
+/**
+ * 
+ * @export
+ * @interface MonthDictListCreate200Response
+ */
+export interface MonthDictListCreate200Response {
+    /**
+     * 状态码
+     * @type {number}
+     * @memberof MonthDictListCreate200Response
+     */
+    'code'?: number;
+    /**
+     * 提示信息
+     * @type {string}
+     * @memberof MonthDictListCreate200Response
+     */
+    'msg'?: string;
+    /**
+     * 
+     * @type {MonthDictListCreate200ResponseData}
+     * @memberof MonthDictListCreate200Response
+     */
+    'data'?: MonthDictListCreate200ResponseData;
+}
+/**
+ * 
+ * @export
+ * @interface MonthDictListCreate200ResponseData
+ */
+export interface MonthDictListCreate200ResponseData {
+    /**
+     * 月份列表
+     * @type {Array<MonthDictListCreate200ResponseDataItemsInner>}
+     * @memberof MonthDictListCreate200ResponseData
+     */
+    'items'?: Array<MonthDictListCreate200ResponseDataItemsInner>;
+    /**
+     * 总数
+     * @type {number}
+     * @memberof MonthDictListCreate200ResponseData
+     */
+    'total'?: number;
+    /**
+     * 页码
+     * @type {number}
+     * @memberof MonthDictListCreate200ResponseData
+     */
+    'page'?: number;
+    /**
+     * 每页数量
+     * @type {number}
+     * @memberof MonthDictListCreate200ResponseData
+     */
+    'page_size'?: number;
+    /**
+     * 总页数
+     * @type {number}
+     * @memberof MonthDictListCreate200ResponseData
+     */
+    'total_pages'?: number;
+    /**
+     * 是否还有更多数据
+     * @type {boolean}
+     * @memberof MonthDictListCreate200ResponseData
+     */
+    'has_more'?: boolean;
+}
+/**
+ * 月份列表
+ * @export
+ * @interface MonthDictListCreate200ResponseDataItemsInner
+ */
+export interface MonthDictListCreate200ResponseDataItemsInner {
+    /**
+     * ID
+     * @type {number}
+     * @memberof MonthDictListCreate200ResponseDataItemsInner
+     */
+    'id'?: number;
+    /**
+     * 月份数字
+     * @type {number}
+     * @memberof MonthDictListCreate200ResponseDataItemsInner
+     */
+    'month_number'?: number;
+    /**
+     * 月份名称
+     * @type {string}
+     * @memberof MonthDictListCreate200ResponseDataItemsInner
+     */
+    'month_name'?: string;
+    /**
+     * 月份简称
+     * @type {string}
+     * @memberof MonthDictListCreate200ResponseDataItemsInner
+     */
+    'month_name_short'?: string;
+    /**
+     * 中文月份名
+     * @type {string}
+     * @memberof MonthDictListCreate200ResponseDataItemsInner
+     */
+    'month_name_cn'?: string;
+    /**
+     * 排序
+     * @type {number}
+     * @memberof MonthDictListCreate200ResponseDataItemsInner
+     */
+    'sort'?: number;
+    /**
+     * 状态
+     * @type {number}
+     * @memberof MonthDictListCreate200ResponseDataItemsInner
+     */
+    'status'?: number;
+    /**
+     * 创建时间
+     * @type {string}
+     * @memberof MonthDictListCreate200ResponseDataItemsInner
+     */
+    'create_time'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface MonthDictListCreateRequest
+ */
+export interface MonthDictListCreateRequest {
+    /**
+     * 页码
+     * @type {number}
+     * @memberof MonthDictListCreateRequest
+     */
+    'page'?: number;
+    /**
+     * 每页数量
+     * @type {number}
+     * @memberof MonthDictListCreateRequest
+     */
+    'page_size'?: number;
+    /**
+     * 状态 1:正常,0:禁用
+     * @type {number}
+     * @memberof MonthDictListCreateRequest
+     */
+    'status'?: number;
+}
+/**
+ * 
+ * @export
+ * @interface MonthDictUpdateCreateRequest
+ */
+export interface MonthDictUpdateCreateRequest {
+    /**
+     * ID
+     * @type {number}
+     * @memberof MonthDictUpdateCreateRequest
+     */
+    'id': number;
+    /**
+     * 月份数字(1-12)
+     * @type {number}
+     * @memberof MonthDictUpdateCreateRequest
+     */
+    'month_number'?: number;
+    /**
+     * 月份名称(例如：January)
+     * @type {string}
+     * @memberof MonthDictUpdateCreateRequest
+     */
+    'month_name'?: string;
+    /**
+     * 月份简称(例如：Jan)
+     * @type {string}
+     * @memberof MonthDictUpdateCreateRequest
+     */
+    'month_name_short'?: string;
+    /**
+     * 中文月份名(例如：一月)
+     * @type {string}
+     * @memberof MonthDictUpdateCreateRequest
+     */
+    'month_name_cn'?: string;
+    /**
+     * 排序
+     * @type {number}
+     * @memberof MonthDictUpdateCreateRequest
+     */
+    'sort'?: number;
+    /**
+     * 状态 1:正常,0:禁用
+     * @type {number}
+     * @memberof MonthDictUpdateCreateRequest
+     */
+    'status'?: number;
+}
+/**
+ * 
+ * @export
  * @interface PaymentPlanCreateCreateRequest
  */
 export interface PaymentPlanCreateCreateRequest {
@@ -3196,19 +3500,6 @@ export interface PaymentPlanCreateCreateRequest {
      * @memberof PaymentPlanCreateCreateRequest
      */
     'status'?: number;
-}
-/**
- * 
- * @export
- * @interface PaymentPlanDeleteCreateRequest
- */
-export interface PaymentPlanDeleteCreateRequest {
-    /**
-     * ID
-     * @type {number}
-     * @memberof PaymentPlanDeleteCreateRequest
-     */
-    'id': number;
 }
 /**
  * 
@@ -8740,6 +9031,41 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * 前台-获取年份和月份列表
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        frontYearMonthListCreate: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/front/year_month_list`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+            // authentication Bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * 创建菜单
          * @param {MenuCreateCreateRequest} data 
          * @param {*} [options] Override http request option.
@@ -8822,6 +9148,170 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * 创建月份字典
+         * @param {MonthDictCreateCreateRequest} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        monthDictCreateCreate: async (data: MonthDictCreateCreateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('monthDictCreateCreate', 'data', data)
+            const localVarPath = `/month_dict/create`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+            // authentication Bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(data, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 删除月份字典
+         * @param {MonthDictDeleteCreateRequest} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        monthDictDeleteCreate: async (data: MonthDictDeleteCreateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('monthDictDeleteCreate', 'data', data)
+            const localVarPath = `/month_dict/delete`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+            // authentication Bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(data, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 获取月份字典列表
+         * @param {MonthDictListCreateRequest} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        monthDictListCreate: async (data: MonthDictListCreateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('monthDictListCreate', 'data', data)
+            const localVarPath = `/month_dict/list`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+            // authentication Bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(data, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 更新月份字典
+         * @param {MonthDictUpdateCreateRequest} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        monthDictUpdateCreate: async (data: MonthDictUpdateCreateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('monthDictUpdateCreate', 'data', data)
+            const localVarPath = `/month_dict/update`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+            // authentication Bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(data, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * 创建价格方案
          * @param {PaymentPlanCreateCreateRequest} data 
          * @param {*} [options] Override http request option.
@@ -8864,11 +9354,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 删除价格方案
-         * @param {PaymentPlanDeleteCreateRequest} data 
+         * @param {MonthDictDeleteCreateRequest} data 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        paymentPlanDeleteCreate: async (data: PaymentPlanDeleteCreateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        paymentPlanDeleteCreate: async (data: MonthDictDeleteCreateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'data' is not null or undefined
             assertParamExists('paymentPlanDeleteCreate', 'data', data)
             const localVarPath = `/payment/plan/delete`;
@@ -8905,11 +9395,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 获取价格方案详情
-         * @param {PaymentPlanDeleteCreateRequest} data 
+         * @param {MonthDictDeleteCreateRequest} data 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        paymentPlanDetailCreate: async (data: PaymentPlanDeleteCreateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        paymentPlanDetailCreate: async (data: MonthDictDeleteCreateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'data' is not null or undefined
             assertParamExists('paymentPlanDetailCreate', 'data', data)
             const localVarPath = `/payment/plan/detail`;
@@ -10304,11 +10794,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 获取角色信息
-         * @param {PaymentPlanDeleteCreateRequest} data 
+         * @param {MonthDictDeleteCreateRequest} data 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        roleInfoCreate: async (data: PaymentPlanDeleteCreateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        roleInfoCreate: async (data: MonthDictDeleteCreateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'data' is not null or undefined
             assertParamExists('roleInfoCreate', 'data', data)
             const localVarPath = `/role/info`;
@@ -10714,11 +11204,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 删除订阅(更新状态为已取消)
-         * @param {PaymentPlanDeleteCreateRequest} data 
+         * @param {MonthDictDeleteCreateRequest} data 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        subscriptionDeleteCreate: async (data: PaymentPlanDeleteCreateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        subscriptionDeleteCreate: async (data: MonthDictDeleteCreateRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'data' is not null or undefined
             assertParamExists('subscriptionDeleteCreate', 'data', data)
             const localVarPath = `/subscription/delete`;
@@ -11562,6 +12052,17 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * 前台-获取年份和月份列表
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async frontYearMonthListCreate(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FrontYearMonthListCreate200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.frontYearMonthListCreate(options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DefaultApi.frontYearMonthListCreate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * 创建菜单
          * @param {MenuCreateCreateRequest} data 
          * @param {*} [options] Override http request option.
@@ -11586,6 +12087,54 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * 创建月份字典
+         * @param {MonthDictCreateCreateRequest} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async monthDictCreateCreate(data: MonthDictCreateCreateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AdminResetPasswordCreate200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.monthDictCreateCreate(data, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DefaultApi.monthDictCreateCreate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 删除月份字典
+         * @param {MonthDictDeleteCreateRequest} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async monthDictDeleteCreate(data: MonthDictDeleteCreateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AdminResetPasswordCreate200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.monthDictDeleteCreate(data, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DefaultApi.monthDictDeleteCreate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 获取月份字典列表
+         * @param {MonthDictListCreateRequest} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async monthDictListCreate(data: MonthDictListCreateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MonthDictListCreate200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.monthDictListCreate(data, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DefaultApi.monthDictListCreate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 更新月份字典
+         * @param {MonthDictUpdateCreateRequest} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async monthDictUpdateCreate(data: MonthDictUpdateCreateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AdminResetPasswordCreate200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.monthDictUpdateCreate(data, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DefaultApi.monthDictUpdateCreate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * 创建价格方案
          * @param {PaymentPlanCreateCreateRequest} data 
          * @param {*} [options] Override http request option.
@@ -11599,11 +12148,11 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         },
         /**
          * 删除价格方案
-         * @param {PaymentPlanDeleteCreateRequest} data 
+         * @param {MonthDictDeleteCreateRequest} data 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async paymentPlanDeleteCreate(data: PaymentPlanDeleteCreateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AdminResetPasswordCreate200Response>> {
+        async paymentPlanDeleteCreate(data: MonthDictDeleteCreateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AdminResetPasswordCreate200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.paymentPlanDeleteCreate(data, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.paymentPlanDeleteCreate']?.[localVarOperationServerIndex]?.url;
@@ -11611,11 +12160,11 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         },
         /**
          * 获取价格方案详情
-         * @param {PaymentPlanDeleteCreateRequest} data 
+         * @param {MonthDictDeleteCreateRequest} data 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async paymentPlanDetailCreate(data: PaymentPlanDeleteCreateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PaymentPlanDetailCreate200Response>> {
+        async paymentPlanDetailCreate(data: MonthDictDeleteCreateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PaymentPlanDetailCreate200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.paymentPlanDetailCreate(data, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.paymentPlanDetailCreate']?.[localVarOperationServerIndex]?.url;
@@ -12019,11 +12568,11 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         },
         /**
          * 获取角色信息
-         * @param {PaymentPlanDeleteCreateRequest} data 
+         * @param {MonthDictDeleteCreateRequest} data 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async roleInfoCreate(data: PaymentPlanDeleteCreateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleInfoCreate200Response>> {
+        async roleInfoCreate(data: MonthDictDeleteCreateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleInfoCreate200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.roleInfoCreate(data, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.roleInfoCreate']?.[localVarOperationServerIndex]?.url;
@@ -12139,11 +12688,11 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         },
         /**
          * 删除订阅(更新状态为已取消)
-         * @param {PaymentPlanDeleteCreateRequest} data 
+         * @param {MonthDictDeleteCreateRequest} data 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async subscriptionDeleteCreate(data: PaymentPlanDeleteCreateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AdminResetPasswordCreate200Response>> {
+        async subscriptionDeleteCreate(data: MonthDictDeleteCreateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AdminResetPasswordCreate200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.subscriptionDeleteCreate(data, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.subscriptionDeleteCreate']?.[localVarOperationServerIndex]?.url;
@@ -12582,6 +13131,14 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.frontStatisticsCreate(options).then((request) => request(axios, basePath));
         },
         /**
+         * 前台-获取年份和月份列表
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        frontYearMonthListCreate(options?: RawAxiosRequestConfig): AxiosPromise<FrontYearMonthListCreate200Response> {
+            return localVarFp.frontYearMonthListCreate(options).then((request) => request(axios, basePath));
+        },
+        /**
          * 创建菜单
          * @param {MenuCreateCreateRequest} data 
          * @param {*} [options] Override http request option.
@@ -12600,6 +13157,42 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.menuListCreate(data, options).then((request) => request(axios, basePath));
         },
         /**
+         * 创建月份字典
+         * @param {MonthDictCreateCreateRequest} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        monthDictCreateCreate(data: MonthDictCreateCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<AdminResetPasswordCreate200Response> {
+            return localVarFp.monthDictCreateCreate(data, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 删除月份字典
+         * @param {MonthDictDeleteCreateRequest} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        monthDictDeleteCreate(data: MonthDictDeleteCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<AdminResetPasswordCreate200Response> {
+            return localVarFp.monthDictDeleteCreate(data, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 获取月份字典列表
+         * @param {MonthDictListCreateRequest} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        monthDictListCreate(data: MonthDictListCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<MonthDictListCreate200Response> {
+            return localVarFp.monthDictListCreate(data, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 更新月份字典
+         * @param {MonthDictUpdateCreateRequest} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        monthDictUpdateCreate(data: MonthDictUpdateCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<AdminResetPasswordCreate200Response> {
+            return localVarFp.monthDictUpdateCreate(data, options).then((request) => request(axios, basePath));
+        },
+        /**
          * 创建价格方案
          * @param {PaymentPlanCreateCreateRequest} data 
          * @param {*} [options] Override http request option.
@@ -12610,20 +13203,20 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         },
         /**
          * 删除价格方案
-         * @param {PaymentPlanDeleteCreateRequest} data 
+         * @param {MonthDictDeleteCreateRequest} data 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        paymentPlanDeleteCreate(data: PaymentPlanDeleteCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<AdminResetPasswordCreate200Response> {
+        paymentPlanDeleteCreate(data: MonthDictDeleteCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<AdminResetPasswordCreate200Response> {
             return localVarFp.paymentPlanDeleteCreate(data, options).then((request) => request(axios, basePath));
         },
         /**
          * 获取价格方案详情
-         * @param {PaymentPlanDeleteCreateRequest} data 
+         * @param {MonthDictDeleteCreateRequest} data 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        paymentPlanDetailCreate(data: PaymentPlanDeleteCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<PaymentPlanDetailCreate200Response> {
+        paymentPlanDetailCreate(data: MonthDictDeleteCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<PaymentPlanDetailCreate200Response> {
             return localVarFp.paymentPlanDetailCreate(data, options).then((request) => request(axios, basePath));
         },
         /**
@@ -12925,11 +13518,11 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         },
         /**
          * 获取角色信息
-         * @param {PaymentPlanDeleteCreateRequest} data 
+         * @param {MonthDictDeleteCreateRequest} data 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        roleInfoCreate(data: PaymentPlanDeleteCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<RoleInfoCreate200Response> {
+        roleInfoCreate(data: MonthDictDeleteCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<RoleInfoCreate200Response> {
             return localVarFp.roleInfoCreate(data, options).then((request) => request(axios, basePath));
         },
         /**
@@ -13015,11 +13608,11 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         },
         /**
          * 删除订阅(更新状态为已取消)
-         * @param {PaymentPlanDeleteCreateRequest} data 
+         * @param {MonthDictDeleteCreateRequest} data 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        subscriptionDeleteCreate(data: PaymentPlanDeleteCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<AdminResetPasswordCreate200Response> {
+        subscriptionDeleteCreate(data: MonthDictDeleteCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<AdminResetPasswordCreate200Response> {
             return localVarFp.subscriptionDeleteCreate(data, options).then((request) => request(axios, basePath));
         },
         /**
@@ -13498,6 +14091,16 @@ export class DefaultApi extends BaseAPI {
     }
 
     /**
+     * 前台-获取年份和月份列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public frontYearMonthListCreate(options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).frontYearMonthListCreate(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * 创建菜单
      * @param {MenuCreateCreateRequest} data 
      * @param {*} [options] Override http request option.
@@ -13520,6 +14123,50 @@ export class DefaultApi extends BaseAPI {
     }
 
     /**
+     * 创建月份字典
+     * @param {MonthDictCreateCreateRequest} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public monthDictCreateCreate(data: MonthDictCreateCreateRequest, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).monthDictCreateCreate(data, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 删除月份字典
+     * @param {MonthDictDeleteCreateRequest} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public monthDictDeleteCreate(data: MonthDictDeleteCreateRequest, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).monthDictDeleteCreate(data, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 获取月份字典列表
+     * @param {MonthDictListCreateRequest} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public monthDictListCreate(data: MonthDictListCreateRequest, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).monthDictListCreate(data, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 更新月份字典
+     * @param {MonthDictUpdateCreateRequest} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public monthDictUpdateCreate(data: MonthDictUpdateCreateRequest, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).monthDictUpdateCreate(data, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * 创建价格方案
      * @param {PaymentPlanCreateCreateRequest} data 
      * @param {*} [options] Override http request option.
@@ -13532,23 +14179,23 @@ export class DefaultApi extends BaseAPI {
 
     /**
      * 删除价格方案
-     * @param {PaymentPlanDeleteCreateRequest} data 
+     * @param {MonthDictDeleteCreateRequest} data 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public paymentPlanDeleteCreate(data: PaymentPlanDeleteCreateRequest, options?: RawAxiosRequestConfig) {
+    public paymentPlanDeleteCreate(data: MonthDictDeleteCreateRequest, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).paymentPlanDeleteCreate(data, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 获取价格方案详情
-     * @param {PaymentPlanDeleteCreateRequest} data 
+     * @param {MonthDictDeleteCreateRequest} data 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public paymentPlanDetailCreate(data: PaymentPlanDeleteCreateRequest, options?: RawAxiosRequestConfig) {
+    public paymentPlanDetailCreate(data: MonthDictDeleteCreateRequest, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).paymentPlanDetailCreate(data, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -13917,12 +14564,12 @@ export class DefaultApi extends BaseAPI {
 
     /**
      * 获取角色信息
-     * @param {PaymentPlanDeleteCreateRequest} data 
+     * @param {MonthDictDeleteCreateRequest} data 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public roleInfoCreate(data: PaymentPlanDeleteCreateRequest, options?: RawAxiosRequestConfig) {
+    public roleInfoCreate(data: MonthDictDeleteCreateRequest, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).roleInfoCreate(data, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -14027,12 +14674,12 @@ export class DefaultApi extends BaseAPI {
 
     /**
      * 删除订阅(更新状态为已取消)
-     * @param {PaymentPlanDeleteCreateRequest} data 
+     * @param {MonthDictDeleteCreateRequest} data 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public subscriptionDeleteCreate(data: PaymentPlanDeleteCreateRequest, options?: RawAxiosRequestConfig) {
+    public subscriptionDeleteCreate(data: MonthDictDeleteCreateRequest, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).subscriptionDeleteCreate(data, options).then((request) => request(this.axios, this.basePath));
     }
 
