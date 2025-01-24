@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const validateEmpty = (value?: string, cb?: any) => {
   if (!value) {
     return cb("用户名输入不能为空");

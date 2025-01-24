@@ -5,7 +5,6 @@ import {
   StatsPopularCreateRequest,
 } from "@/services";
 import api from "@/utils/service";
-import { a } from "motion/react-client";
 
 const getFrontProductDetail = async (
   params: FrontProductDetailCreateRequest

@@ -7,6 +7,7 @@ export interface ProductionTitleProps
   poi: number;
 }
 const FeaturedListItem: FC<ProductionTitleProps> = (props) => {
+  console.log(props);
   return (
     <div className="rounded-16 overflow-hidden border-1 border-solid border-E8E8E9">
       <div className="p-16 flex items-center justify-between space-x-16">

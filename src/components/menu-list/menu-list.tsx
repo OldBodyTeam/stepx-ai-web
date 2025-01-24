@@ -3,7 +3,6 @@
 import {
   FrontCategoryListCreate200ResponseDataItemsInner,
   FrontPreloadProductsCreate200ResponseDataItemsInner,
-  FrontYearMonthListCreate200ResponseDataItemsInner,
 } from "@/services";
 import { HomeOutlined } from "@ant-design/icons";
 import { useMemoizedFn } from "ahooks";

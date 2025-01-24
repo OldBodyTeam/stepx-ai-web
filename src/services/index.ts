@@ -1,5 +1,5 @@
 /* tslint:disable */
-/* eslint-disable */
+
 /**
  * 后浪API文档
  * 后浪项目接口文档  认证方式：在请求头中添加 X-API-Key
@@ -12,7 +12,5 @@
  * Do not edit the class manually.
  */
 
-
 export * from "./api";
 export * from "./configuration";
-
