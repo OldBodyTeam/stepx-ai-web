@@ -52,7 +52,7 @@ const MenuList: FC<MenuListProps> = (props) => {
       .map((key) => encodeURIComponent(reference.get(Number(key))!))
       .reverse()
       .join("/");
-    router.push(`/${path}`);
+    router.push(`/${path}/${keyPath[0]}`);
   });
   const [menuList, setMenuList] = useState<MenuItem[]>([]);
   const list = useMemo(() => {

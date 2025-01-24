@@ -2,8 +2,7 @@
 import { useHashState } from "@/hooks/use-hash";
 import useScrollInfo from "@/hooks/use-scroll-info";
 import { useDebounceFn } from "ahooks";
-import { debounce } from "lodash";
-import { motion, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import { FC, PropsWithChildren, useRef } from "react";
 export interface TitleProps {
   className?: string;

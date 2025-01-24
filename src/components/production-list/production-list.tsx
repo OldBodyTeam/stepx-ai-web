@@ -7,12 +7,13 @@ import { getFrontProductList } from "@/app/(home)/actions";
 import { Spin } from "antd";
 import { uniqBy } from "lodash";
 import SortTitle from "../title/sort-title";
+import { LIMIT } from "@/constrains/var";
 export interface ProductionListProps {
   title?: string;
   products?: FrontPreloadProductsCreate200ResponseDataItemsInnerProductsInner[];
   timeValue?: number;
 }
-const LIMIT = 35;
+
 const ProductionList: FC<ProductionListProps> = (props) => {
   const { title, products = [], timeValue } = props;
   const [productsList, setProductsList] = useState<
@@ -39,7 +40,7 @@ const ProductionList: FC<ProductionListProps> = (props) => {
       <SortTitle title={title}>{title}</SortTitle>
       <div className="grid gap-10 grid-cols-5 mt-16">
         {(productsList || []).map((item) => {
-          return <ProductionListItem key={item.id} />;
+          return <ProductionListItem key={item.id} item={item} />;
         })}
       </div>
       {products?.length >= LIMIT ? (

@@ -1,7 +1,12 @@
+import { StatsPopularCreate200ResponseDataItemsInner } from "@/services";
 import { formatNumber } from "@/utils/format";
 import Image from "next/image";
-
-const FeaturedListItem = () => {
+import { FC } from "react";
+export interface ProductionTitleProps
+  extends StatsPopularCreate200ResponseDataItemsInner {
+  poi: number;
+}
+const FeaturedListItem: FC<ProductionTitleProps> = (props) => {
   return (
     <div className="rounded-16 overflow-hidden border-1 border-solid border-E8E8E9">
       <div className="p-16 flex items-center justify-between space-x-16">

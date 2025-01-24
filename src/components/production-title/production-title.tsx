@@ -3,10 +3,16 @@ import ImageList from "../image-list/image-list";
 import Image from "next/image";
 import { Divider } from "antd";
 import Link from "next/link";
-const ProductionTitle = () => {
+import type { FC } from "react";
+import { FrontProductDetailCreate200ResponseDataData } from "@/services";
+export interface ProductionTitleProps {
+  articleDetail?: FrontProductDetailCreate200ResponseDataData;
+}
+const ProductionTitle: FC<ProductionTitleProps> = (props) => {
+  const { articleDetail } = props;
   return (
     <div className="flex space-x-32">
-      <ImageList />
+      <ImageList cover={articleDetail?.cover} />
       <div>
         <div className="text-xs12 text-222222 mb-2">OpenAI</div>
         <div className="font-medium text-222222 text-[28px]">ChatGPT</div>
@@ -45,7 +51,7 @@ const ProductionTitle = () => {
           </div>
         </div>
         <Divider />
-        <Link href={"/production/love.png"} className="block">
+        <Link href={articleDetail?.product_link || ""} className="block">
           <div className="py-10 bg-D0FF71 rounded-20 flex items-center justify-center font-medium text-xs14 text-222222">
             Visit Site
           </div>
