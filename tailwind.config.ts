@@ -61,6 +61,12 @@ export default {
       F0F0F0: "#F0F0F0",
     },
     fontSize: {
+      xs11: [
+        "11px",
+        {
+          lineHeight: "18px",
+        },
+      ],
       xs12: [
         "12px",
         {

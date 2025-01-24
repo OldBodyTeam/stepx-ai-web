@@ -2247,6 +2247,202 @@ export interface FrontCategoryListCreateRequest {
 /**
  * 
  * @export
+ * @interface FrontPreloadProductsCreate200Response
+ */
+export interface FrontPreloadProductsCreate200Response {
+    /**
+     * 状态码
+     * @type {number}
+     * @memberof FrontPreloadProductsCreate200Response
+     */
+    'code'?: number;
+    /**
+     * 提示信息
+     * @type {string}
+     * @memberof FrontPreloadProductsCreate200Response
+     */
+    'msg'?: string;
+    /**
+     * 
+     * @type {FrontPreloadProductsCreate200ResponseData}
+     * @memberof FrontPreloadProductsCreate200Response
+     */
+    'data'?: FrontPreloadProductsCreate200ResponseData;
+}
+/**
+ * 
+ * @export
+ * @interface FrontPreloadProductsCreate200ResponseData
+ */
+export interface FrontPreloadProductsCreate200ResponseData {
+    /**
+     * 预加载产品列表
+     * @type {Array<FrontPreloadProductsCreate200ResponseDataItemsInner>}
+     * @memberof FrontPreloadProductsCreate200ResponseData
+     */
+    'items'?: Array<FrontPreloadProductsCreate200ResponseDataItemsInner>;
+}
+/**
+ * 预加载产品列表
+ * @export
+ * @interface FrontPreloadProductsCreate200ResponseDataItemsInner
+ */
+export interface FrontPreloadProductsCreate200ResponseDataItemsInner {
+    /**
+     * 值
+     * @type {number}
+     * @memberof FrontPreloadProductsCreate200ResponseDataItemsInner
+     */
+    'value'?: number;
+    /**
+     * 显示文本，年份为数字，月份为简称
+     * @type {string}
+     * @memberof FrontPreloadProductsCreate200ResponseDataItemsInner
+     */
+    'label'?: string;
+    /**
+     * 该月份/年份的产品列表
+     * @type {Array<FrontPreloadProductsCreate200ResponseDataItemsInnerProductsInner>}
+     * @memberof FrontPreloadProductsCreate200ResponseDataItemsInner
+     */
+    'products'?: Array<FrontPreloadProductsCreate200ResponseDataItemsInnerProductsInner>;
+}
+/**
+ * 
+ * @export
+ * @interface FrontPreloadProductsCreate200ResponseDataItemsInnerProductsInner
+ */
+export interface FrontPreloadProductsCreate200ResponseDataItemsInnerProductsInner {
+    /**
+     * ID
+     * @type {number}
+     * @memberof FrontPreloadProductsCreate200ResponseDataItemsInnerProductsInner
+     */
+    'id'?: number;
+    /**
+     * 产品名称
+     * @type {string}
+     * @memberof FrontPreloadProductsCreate200ResponseDataItemsInnerProductsInner
+     */
+    'product_name'?: string;
+    /**
+     * 副标题
+     * @type {string}
+     * @memberof FrontPreloadProductsCreate200ResponseDataItemsInnerProductsInner
+     */
+    'subtitle'?: string;
+    /**
+     * 产品链接
+     * @type {string}
+     * @memberof FrontPreloadProductsCreate200ResponseDataItemsInnerProductsInner
+     */
+    'product_link'?: string;
+    /**
+     * 封面图片URL列表
+     * @type {Array<string>}
+     * @memberof FrontPreloadProductsCreate200ResponseDataItemsInnerProductsInner
+     */
+    'cover'?: Array<string>;
+    /**
+     * logo图片
+     * @type {string}
+     * @memberof FrontPreloadProductsCreate200ResponseDataItemsInnerProductsInner
+     */
+    'logo'?: string;
+    /**
+     * SEO标题
+     * @type {string}
+     * @memberof FrontPreloadProductsCreate200ResponseDataItemsInnerProductsInner
+     */
+    'title'?: string;
+    /**
+     * 永久链接
+     * @type {string}
+     * @memberof FrontPreloadProductsCreate200ResponseDataItemsInnerProductsInner
+     */
+    'permalink'?: string;
+    /**
+     * SEO描述
+     * @type {string}
+     * @memberof FrontPreloadProductsCreate200ResponseDataItemsInnerProductsInner
+     */
+    'description'?: string;
+    /**
+     * 关键词列表
+     * @type {Array<string>}
+     * @memberof FrontPreloadProductsCreate200ResponseDataItemsInnerProductsInner
+     */
+    'focus_keyword'?: Array<string>;
+    /**
+     * 封面颜色配置ID
+     * @type {number}
+     * @memberof FrontPreloadProductsCreate200ResponseDataItemsInnerProductsInner
+     */
+    'cover_color_id'?: number;
+    /**
+     * 背景颜色
+     * @type {string}
+     * @memberof FrontPreloadProductsCreate200ResponseDataItemsInnerProductsInner
+     */
+    'background_color'?: string;
+    /**
+     * 边框颜色
+     * @type {string}
+     * @memberof FrontPreloadProductsCreate200ResponseDataItemsInnerProductsInner
+     */
+    'border_color'?: string;
+    /**
+     * 主标题颜色
+     * @type {string}
+     * @memberof FrontPreloadProductsCreate200ResponseDataItemsInnerProductsInner
+     */
+    'main_title_color'?: string;
+    /**
+     * 副标题颜色
+     * @type {string}
+     * @memberof FrontPreloadProductsCreate200ResponseDataItemsInnerProductsInner
+     */
+    'subtitle_color'?: string;
+    /**
+     * 标签文字颜色
+     * @type {string}
+     * @memberof FrontPreloadProductsCreate200ResponseDataItemsInnerProductsInner
+     */
+    'tag_text_color'?: string;
+    /**
+     * 标签边框颜色
+     * @type {string}
+     * @memberof FrontPreloadProductsCreate200ResponseDataItemsInnerProductsInner
+     */
+    'tag_border_color'?: string;
+    /**
+     * 热度背景颜色
+     * @type {string}
+     * @memberof FrontPreloadProductsCreate200ResponseDataItemsInnerProductsInner
+     */
+    'heat_background_color'?: string;
+    /**
+     * 创建时间
+     * @type {string}
+     * @memberof FrontPreloadProductsCreate200ResponseDataItemsInnerProductsInner
+     */
+    'create_time'?: string;
+    /**
+     * 总浏览量
+     * @type {number}
+     * @memberof FrontPreloadProductsCreate200ResponseDataItemsInnerProductsInner
+     */
+    'total_views'?: number;
+    /**
+     * 父分类名称列表
+     * @type {Array<string>}
+     * @memberof FrontPreloadProductsCreate200ResponseDataItemsInnerProductsInner
+     */
+    'categories'?: Array<string>;
+}
+/**
+ * 
+ * @export
  * @interface FrontProductDetailCreate200Response
  */
 export interface FrontProductDetailCreate200Response {
@@ -8873,6 +9069,41 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * 前台-获取预加载产品列表
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        frontPreloadProductsCreate: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/front/PreloadProducts`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+            // authentication Bearer required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * 前台-获取产品详情
          * @param {FrontProductDetailCreateRequest} data 
          * @param {*} [options] Override http request option.
@@ -12005,6 +12236,17 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * 前台-获取预加载产品列表
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async frontPreloadProductsCreate(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FrontPreloadProductsCreate200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.frontPreloadProductsCreate(options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DefaultApi.frontPreloadProductsCreate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * 前台-获取产品详情
          * @param {FrontProductDetailCreateRequest} data 
          * @param {*} [options] Override http request option.
@@ -13096,6 +13338,14 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.frontCategoryListCreate(data, options).then((request) => request(axios, basePath));
         },
         /**
+         * 前台-获取预加载产品列表
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        frontPreloadProductsCreate(options?: RawAxiosRequestConfig): AxiosPromise<FrontPreloadProductsCreate200Response> {
+            return localVarFp.frontPreloadProductsCreate(options).then((request) => request(axios, basePath));
+        },
+        /**
          * 前台-获取产品详情
          * @param {FrontProductDetailCreateRequest} data 
          * @param {*} [options] Override http request option.
@@ -14045,6 +14295,16 @@ export class DefaultApi extends BaseAPI {
      */
     public frontCategoryListCreate(data: FrontCategoryListCreateRequest, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).frontCategoryListCreate(data, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 前台-获取预加载产品列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public frontPreloadProductsCreate(options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).frontPreloadProductsCreate(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

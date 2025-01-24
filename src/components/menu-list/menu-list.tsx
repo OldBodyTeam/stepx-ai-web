@@ -1,6 +1,10 @@
 "use client";
 
-import { FrontCategoryListCreate200ResponseDataItemsInner } from "@/services";
+import {
+  FrontCategoryListCreate200ResponseDataItemsInner,
+  FrontPreloadProductsCreate200ResponseDataItemsInner,
+  FrontYearMonthListCreate200ResponseDataItemsInner,
+} from "@/services";
 import { HomeOutlined } from "@ant-design/icons";
 import { useMemoizedFn } from "ahooks";
 import { Button, Divider, Menu, MenuProps } from "antd";
@@ -35,6 +39,7 @@ const otherItems: MenuItem[] = [
 ];
 export interface MenuListProps {
   categoryList?: FrontCategoryListCreate200ResponseDataItemsInner[];
+  monthList?: FrontPreloadProductsCreate200ResponseDataItemsInner[];
 }
 const MenuList: FC<MenuListProps> = (props) => {
   const { categoryList } = props;
@@ -83,7 +88,7 @@ const MenuList: FC<MenuListProps> = (props) => {
     setShowLoadMore(false);
   });
   return (
-    <div className="w-216 py-12 px-8 border-r-1 border-solid border-F5F5F5 overflow-x-hidden overflow-y-auto max-h-[calc(100vh-73px)] h-[calc(100vh-73px)]">
+    <div className="w-216 py-12 px-8 border-r-1 border-solid border-F5F5F5 overflow-x-hidden overflow-y-auto max-h-[calc(100vh-73px)] h-[calc(100vh-73px)] bg-FFFFFF relative z-10">
       <Menu
         onClick={onClick}
         defaultSelectedKeys={["home"]}
