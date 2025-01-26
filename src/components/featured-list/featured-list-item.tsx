@@ -13,7 +13,7 @@ const FeaturedListItem: FC<ProductionTitleProps> = (props) => {
       <div className="p-16 flex items-center justify-between space-x-16">
         <div className="w-46 h-46 rounded-8 overflow-hidden bg-D0FF71">
           <Image
-            src={"/production/love.png"}
+            src={`${process.env.NEXT_PUBLIC_BASE_URL}/production/love.png`}
             alt="logo"
             width={46}
             height={46}
@@ -25,7 +25,7 @@ const FeaturedListItem: FC<ProductionTitleProps> = (props) => {
               MimicPC- Open
             </div>
             <Image
-              src={"/production/yes.png"}
+              src={`${process.env.NEXT_PUBLIC_BASE_URL}/production/yes.png`}
               alt="yes"
               width={20}
               height={20}

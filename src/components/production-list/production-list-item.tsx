@@ -25,7 +25,7 @@ const ProductionListItem: FC<ProductionListItemProps> = (props) => {
             <div className="text-xs12">{formatNumber(10000000000000)}</div>
           </div>
           <Image
-            src={"/production/love.png"}
+            src={`${process.env.NEXT_PUBLIC_BASE_URL}/production/love.png`}
             alt="love"
             width={24}
             height={24}
@@ -38,7 +38,12 @@ const ProductionListItem: FC<ProductionListItemProps> = (props) => {
           <div className="text-xs14 text-FFFFFF font-medium mr-4">
             {item.product_name}
           </div>
-          <Image src={"/production/yes.png"} width={16} height={16} alt="yes" />
+          <Image
+            src={`${process.env.NEXT_PUBLIC_BASE_URL}/production/yes.png`}
+            width={16}
+            height={16}
+            alt="yes"
+          />
         </div>
         <div className="text-xs12 text-FFFFFF mb-10">{item.subtitle}</div>
         <div className="space-x-6 flex items-center">

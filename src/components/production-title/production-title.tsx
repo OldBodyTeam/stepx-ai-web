@@ -31,7 +31,7 @@ const ProductionTitle: FC<ProductionTitleProps> = (props) => {
         <div className="flex items-center space-x-8 mt-12">
           <div className="flex items-center space-x-1">
             <Image
-              src={"/production/date.png"}
+              src={`${process.env.NEXT_PUBLIC_BASE_URL}/production/date.png`}
               width={16}
               height={16}
               alt="date"
@@ -40,7 +40,7 @@ const ProductionTitle: FC<ProductionTitleProps> = (props) => {
           </div>
           <div className="flex items-center space-x-1">
             <Image
-              src={"/production/hot.png"}
+              src={`${process.env.NEXT_PUBLIC_BASE_URL}/production/hot.png`}
               width={16}
               height={16}
               alt="date"
