@@ -3,4 +3,4 @@ set -e
 pnpm install
 pnpm run build
 
-pm2 reload 0
+pm2 reload 1

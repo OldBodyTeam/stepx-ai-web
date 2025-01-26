@@ -6,6 +6,18 @@ const nextConfig: NextConfig = {
     process.env.NODE_ENV === "production"
       ? process.env.NEXT_PUBLIC_BASE_URL
       : "",
+  images: {
+    remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
