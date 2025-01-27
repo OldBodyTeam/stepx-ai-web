@@ -10,8 +10,8 @@ export interface ProductionTitleProps
 const FeaturedListItem: FC<ProductionTitleProps> = (props) => {
   const { product_name, subtitle, total_views } = props;
   return (
-    <div className="rounded-16 overflow-hidden border-1 border-solid border-E8E8E9">
-      <div className="p-16 flex items-center justify-between space-x-16">
+    <div className="rounded-16 overflow-hidden border-1 border-solid border-E8E8E9 min-w-332 w-332">
+      <div className="p-16 flex items-center space-x-16">
         <div className="w-46 h-46 rounded-8 overflow-hidden bg-D0FF71">
           <Image
             src={`${process.env.NEXT_PUBLIC_BASE_URL}/production/love.png`}
