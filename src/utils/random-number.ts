@@ -3,5 +3,5 @@
  * @returns {number} 0到10之间的随机整数
  */
 export const getRandomNumber = (end: number) => {
-  return Math.floor(Math.random() * (end + 1));
+  return Math.floor(Math.random() * end);
 };

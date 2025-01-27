@@ -97,7 +97,8 @@ const MenuList: FC<MenuListProps> = (props) => {
   const [menuList, setMenuList] = useState<MenuItem[]>([]);
   const list = useMemo(() => {
     const transformData = (
-      items?: FrontCategoryListCreate200ResponseDataItemsInner[]
+      items: FrontCategoryListCreate200ResponseDataItemsInner[],
+      level: number
     ): CategoryListType[] => {
       if (!items) return [];
 
@@ -114,20 +115,23 @@ const MenuList: FC<MenuListProps> = (props) => {
           label: item.name,
           value: item.id,
           key: item.id,
-          icon: (
-            <Image
-              src={`${process.env.NEXT_PUBLIC_BASE_URL}/menu/${menuIcon[index]}.png`}
-              width={20}
-              height={20}
-              alt={menuIcon[index]}
-            />
-          ),
-          children: item.children ? transformData(item.children) : undefined,
+          icon:
+            level === 1 ? (
+              <Image
+                src={`${process.env.NEXT_PUBLIC_BASE_URL}/menu/${menuIcon[index]}.png`}
+                width={20}
+                height={20}
+                alt={menuIcon[index]}
+              />
+            ) : (
+              <div className="!w-8 h-8 rounded-8 !min-w-8" />
+            ),
+          children: item.children ? transformData(item.children, 2) : undefined,
         };
       });
     };
 
-    return transformData(Array.isArray(categoryList) ? categoryList : []);
+    return transformData(Array.isArray(categoryList) ? categoryList : [], 1);
   }, [categoryList]);
   useEffect(() => {
     setMenuList([...list].slice(0, 6) as MenuItem[]);

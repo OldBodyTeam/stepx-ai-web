@@ -56,6 +56,7 @@ export default function RootLayout({
                 },
                 Menu: {
                   lineWidth: 0,
+                  subMenuItemBg: "#FFFFFF",
                 },
               },
             }}

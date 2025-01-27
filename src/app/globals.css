@@ -22,3 +22,9 @@ body {
 div {
   box-sizing: border-box;
 }
+.ant-menu-item-selected > div.h-8 {
+  background: #fadb14;
+}
+.ant-menu-inline > li.ant-menu-item {
+  padding-left: 14px !important;
+}
