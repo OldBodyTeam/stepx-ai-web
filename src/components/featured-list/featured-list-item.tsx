@@ -1,5 +1,6 @@
 import { StatsPopularCreate200ResponseDataItemsInner } from "@/services";
 import { formatNumber } from "@/utils/format";
+import { Typography } from "antd";
 import Image from "next/image";
 import { FC } from "react";
 export interface ProductionTitleProps
@@ -7,7 +8,7 @@ export interface ProductionTitleProps
   poi: number;
 }
 const FeaturedListItem: FC<ProductionTitleProps> = (props) => {
-  console.log(props);
+  const { product_name, subtitle, total_views } = props;
   return (
     <div className="rounded-16 overflow-hidden border-1 border-solid border-E8E8E9">
       <div className="p-16 flex items-center justify-between space-x-16">
@@ -21,9 +22,12 @@ const FeaturedListItem: FC<ProductionTitleProps> = (props) => {
         </div>
         <div>
           <div className="flex items-center mb-6">
-            <div className="text-xs16 font-medium text-222222 mr-6">
-              MimicPC- Open
-            </div>
+            <Typography.Title
+              className="!text-xs16 !font-medium !text-222222 !mr-6 !mb-0"
+              ellipsis={{ rows: 1, tooltip: true }}
+            >
+              {product_name}
+            </Typography.Title>
             <Image
               src={`${process.env.NEXT_PUBLIC_BASE_URL}/production/yes.png`}
               alt="yes"
@@ -31,16 +35,19 @@ const FeaturedListItem: FC<ProductionTitleProps> = (props) => {
               height={20}
             />
           </div>
-          <div className="text-xs12 text-222222">
-            Source AI applications platform
-          </div>
+          <Typography.Title
+            className="!text-xs12 !text-222222"
+            ellipsis={{ rows: 1, tooltip: true }}
+          >
+            {subtitle}
+          </Typography.Title>
         </div>
       </div>
       <div className="px-16 py-12 flex items-center justify-between bg-F5F5F5">
         <div className="text-222222 text-xs12">CYBER BYET PTE. LTD</div>
         <div className="flex items-center">
           <div className="text-222222 text-xs12">
-            {formatNumber(10000000000000)}
+            {formatNumber(total_views || 0)}
           </div>
         </div>
       </div>
