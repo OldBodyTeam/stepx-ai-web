@@ -26,7 +26,7 @@ const RelatedProductList: FC<RelatedProductListProps> = (props) => {
     <div>
       <div className="flex items-center justify-between" ref={divRef}>
         <Title>You might also like</Title>
-        <Link href={"/product"}>
+        <Link href={"/"}>
           <div className="px-32 py-10 text-xs14 text-222222 rounded-40 overflow-hidden bg-D0FF71 cursor-pointer">
             SEE MORE
           </div>

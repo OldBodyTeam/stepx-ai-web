@@ -14,10 +14,14 @@ const ProductionTitle: FC<ProductionTitleProps> = (props) => {
     <div className="flex space-x-32">
       <ImageList cover={articleDetail?.cover} />
       <div>
-        <div className="text-xs12 text-222222 mb-2">OpenAI</div>
-        <div className="font-medium text-222222 text-[28px]">ChatGPT</div>
+        <div className="text-xs12 text-222222 mb-2">
+          {articleDetail?.product_name}
+        </div>
+        <div className="font-medium text-222222 text-[28px]">
+          {articleDetail?.subtitle}
+        </div>
         <div className="flex items-center space-x-4">
-          {[1, 2, 3, 4].map((v) => {
+          {(articleDetail?.categories || []).map((v) => {
             return (
               <div
                 key={v}
@@ -57,10 +61,7 @@ const ProductionTitle: FC<ProductionTitleProps> = (props) => {
           </div>
         </Link>
         <div className="line-clamp-3 text-xs12 text-4F5357 mt-12">
-          Unleash the potential of AI with Soulkyn - your customizable,
-          intelligent companion. With realistic memory and unique personalities,
-          Soulkyn is your perfect digital companion. Discover the future of AI
-          chat bots.
+          {articleDetail?.description}
         </div>
       </div>
     </div>
