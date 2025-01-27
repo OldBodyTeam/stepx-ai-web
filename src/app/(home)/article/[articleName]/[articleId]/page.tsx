@@ -43,7 +43,7 @@ const ArticleDetail = async ({
         </div>
 
         <ProductionTitle articleDetail={articleDetail} />
-        <div className="flex mt-40 sticky top-173 right-60">
+        <div className="flex mt-40">
           <div className="flex-1">
             <div
               dangerouslySetInnerHTML={{ __html: articleDetail.content || "" }}

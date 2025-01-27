@@ -34,7 +34,7 @@ const FeaturedList: FC<FeaturedListProps> = (props) => {
 
   return (
     <div
-      className="flex-1 overflow-x-hidden overflow-y-auto scrollbar-none mb-16 rounded-16 bg-FFFFFF [&_div]:overflow-hidden"
+      className="flex-1 overflow-x-hidden overflow-y-auto scrollbar-none my-16 rounded-16 bg-FFFFFF [&_div]:overflow-hidden max-h-400"
       id="scrollableDiv"
     >
       <InfiniteScroll
@@ -49,7 +49,10 @@ const FeaturedList: FC<FeaturedListProps> = (props) => {
           dataSource={listData}
           renderItem={(item, index) => {
             return (
-              <List.Item key={item.id + ""} className="!p-0 !mx-16">
+              <List.Item
+                key={item.id + ""}
+                className="!p-0 !mb-10 !border-none"
+              >
                 <FeaturedListItem {...item} poi={index} />
               </List.Item>
             );

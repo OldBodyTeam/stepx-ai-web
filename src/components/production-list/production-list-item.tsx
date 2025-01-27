@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { FrontPreloadProductsCreate200ResponseDataItemsInnerProductsInner } from "@/services";
 import { formatNumber } from "@/utils/format";
+import { Typography } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
@@ -35,9 +36,12 @@ const ProductionListItem: FC<ProductionListItemProps> = (props) => {
           <img alt="logo" src={item?.logo} width={120} height={120} />
         </div>
         <div className="flex items-center mb-2">
-          <div className="text-xs14 text-FFFFFF font-medium mr-4">
+          <Typography.Title
+            className="!text-xs14 !text-FFFFFF !font-medium !mr-4 !mb-0"
+            ellipsis={{ rows: 1, tooltip: true }}
+          >
             {item.product_name}
-          </div>
+          </Typography.Title>
           <Image
             src={`${process.env.NEXT_PUBLIC_BASE_URL}/production/yes.png`}
             width={16}
@@ -45,9 +49,14 @@ const ProductionListItem: FC<ProductionListItemProps> = (props) => {
             alt="yes"
           />
         </div>
-        <div className="text-xs12 text-FFFFFF mb-10">{item.subtitle}</div>
+        <Typography.Title
+          className="!text-xs12 !text-FFFFFF !mb-10"
+          ellipsis={{ rows: 1, tooltip: true }}
+        >
+          {item.subtitle}
+        </Typography.Title>
         <div className="space-x-6 flex items-center">
-          {[1, 2].map((v) => {
+          {(item.categories || []).slice(0, 2).map((v) => {
             return (
               <div
                 className="flex items-center justify-center px-8 py-2 text-FFFFFF text-xs12 font-medium border-1 border-solid border-white20 rounded-4 overflow-hidden"
