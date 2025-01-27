@@ -81,13 +81,18 @@ export interface MenuListProps {
 }
 const MenuList: FC<MenuListProps> = (props) => {
   const { categoryList } = props;
+  const [openKeys, setOpenKeys] = useState<string[]>([]);
+  const [selectedKeys, setSelectedKeys] = useState<string[]>(["home"]);
   const router = useRouter();
   const [reference, setReference] = useState<Map<number, string>>(new Map());
   const handleHomeClick: MenuProps["onClick"] = useMemoizedFn(() => {
     router.push("/");
+    setOpenKeys([]);
+    setSelectedKeys(["home"]);
   });
   const onClick: MenuProps["onClick"] = useMemoizedFn((e) => {
     const { keyPath } = e;
+    setSelectedKeys(keyPath);
     const path = (keyPath as string[])
       .map((key) => encodeURIComponent(reference.get(Number(key))!))
       .reverse()
@@ -141,15 +146,22 @@ const MenuList: FC<MenuListProps> = (props) => {
     setMenuList([...(list as MenuItem[])]);
     setShowLoadMore(false);
   });
+  const handleOpenChange = useMemoizedFn((a) => {
+    setOpenKeys(a);
+  });
+  const handleOtherClick: MenuProps["onClick"] = useMemoizedFn((e) => {
+    const { keyPath } = e;
+    setSelectedKeys(keyPath);
+    setOpenKeys([]);
+  });
   return (
     <div className="w-216 py-12 px-8 border-r-1 border-solid border-F5F5F5 overflow-x-hidden overflow-y-auto max-h-[calc(100vh-73px)] h-[calc(100vh-73px)] bg-FFFFFF relative z-10">
       <Menu
         onClick={handleHomeClick}
-        defaultSelectedKeys={["home"]}
-        defaultOpenKeys={["home"]}
         mode="inline"
         items={homeItems}
         inlineIndent={12}
+        selectedKeys={selectedKeys}
       />
       <Divider />
       <div>
@@ -165,6 +177,9 @@ const MenuList: FC<MenuListProps> = (props) => {
             },
           ]}
           inlineIndent={12}
+          openKeys={openKeys}
+          selectedKeys={selectedKeys}
+          onOpenChange={handleOpenChange}
         />
         {showLoadMore ? (
           <Button onClick={loadMenuData} type="text">
@@ -175,10 +190,12 @@ const MenuList: FC<MenuListProps> = (props) => {
 
       <Divider />
       <Menu
-        onClick={onClick}
+        onClick={handleOtherClick}
         mode="inline"
         items={otherItems}
         inlineIndent={12}
+        openKeys={openKeys}
+        selectedKeys={selectedKeys}
       />
     </div>
   );

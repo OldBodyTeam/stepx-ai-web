@@ -7,6 +7,7 @@ import { Provider } from "jotai";
 const listReference = getDateList();
 const Home: React.FC = async () => {
   const list = await getFrontPreloadProducts();
+  console.log(list);
   return (
     <Provider store={HashStore}>
       <div>
